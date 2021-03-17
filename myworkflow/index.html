@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流 - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流" />
+<meta property="og:description" content="作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/myworkflow/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2020-11-22T20:01:23+08:00" />
+<meta property="article:modified_time" content="2020-11-22T20:01:23+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流"/>
+<meta name="twitter:description" content="作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/myworkflow/" /><link rel="prev" href="http://example.org/app-0/" /><link rel="next" href="http://example.org/shell-3/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SSH+Tmux+Vim: 简单高效 Geek 的工作流",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/myworkflow\/"
+        },"genre": "posts","keywords": "Vim, Tmux","wordcount":  1303 ,
+        "url": "http:\/\/example.org\/myworkflow\/","datePublished": "2020-11-22T20:01:23+08:00","dateModified": "2020-11-22T20:01:23+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-22">2020-11-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1303 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh">SSH</a></li>
+    <li><a href="#tmux-终端复用">Tmux 终端复用</a>
+      <ul>
+        <li><a href="#安装-tmux">安装 Tmux</a></li>
+        <li><a href="#舒服的配置">舒服的配置</a>
+          <ul>
+            <li><a href="#修改-prefix-键">修改 prefix 键</a></li>
+            <li><a href="#分屏">分屏</a></li>
+            <li><a href="#如何与-vim-联动">如何与 Vim 联动</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。</p>
+<p>常用的方法无非以下几种：</p>
+<ol>
+<li>利用远程桌面（<strong>teamviewer</strong>，<strong>VNC</strong> 等工具）全程 <strong>GUI</strong> 操作</li>
+<li>利用本地端的 IDE（如 <strong>Pycharm</strong>）或者代码编辑器（如 VS Code 等）写代码，然后利用他们的 Remote Tools 进行代码上传等</li>
+<li>SSH 到远程服务器，全程 CLI 操作</li>
+</ol>
+<p>三种方法各有优劣，但如果兼顾效率与 Geek，那第三种方法真是 Awesome 到不行。</p>
+<p>我的工作流是：</p>
+<ul>
+<li>SSH 到远程服务器</li>
+<li>新建 <strong>Tmux</strong> 会话，或者 attach 之前的会话</li>
+<li>使用 <strong>Vim</strong> 编辑代码，以及其他命令行工具</li>
+<li>使用 <strong>Anaconda</strong> 虚拟环境中 python 进行炼丹</li>
+</ul>
+<h2 id="ssh">SSH</h2>
+<p>如果你操作远程服务器，那你一定接触过 SSH，如果没有那一定是没到家。<code>windows</code>的<code>powershell</code>和几乎所有的<code>Linux</code>发行版都自带<code>SSH</code>，可以在终端中使用。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://atulhost.com/wp-content/uploads/2020/04/ssh.png"
+        data-srcset="https://atulhost.com/wp-content/uploads/2020/04/ssh.png, https://atulhost.com/wp-content/uploads/2020/04/ssh.png 1.5x, https://atulhost.com/wp-content/uploads/2020/04/ssh.png 2x"
+        data-sizes="auto"
+        alt="https://atulhost.com/wp-content/uploads/2020/04/ssh.png"
+        title="https://atulhost.com/wp-content/uploads/2020/04/ssh.png" />
+常用的命令是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh user@domain.com
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Windows</code>下也可以使用<code>PuTTY</code>等工具使用<code>SSH</code>。这里不得不再推荐一下<code>Windows Subsystem for Linux</code>因为服务器是<code>Linux</code>系统，统一一下环境岂不美哉。</p>
+<p>更多 ssh 配置关键字 [‘ssh 免密登录’]</p>
+<h2 id="tmux-终端复用">Tmux 终端复用</h2>
+<p>单使用 SSH 是不够的，因为如果你要同时运行多个命令，就需要开多个终端，那是非常复杂难以管理的，Tmux 就因此而诞生了，它可以让你在一个终端里面模拟出多个终端。不仅如此，它还可以让你的程序始终处于运行状态，不管终端是否关闭，只要你的 Tmux 进程没有停止。</p>
+<p>试想这样一个情形，你用 Pycharm 写了代码，并上传到了服务器，利用 Pycharm 的终端开始了训练，这时你不小心把 Pycharm 关了，或者突然断电了，或者 Win10 又蓝屏又重启更新了，那你的训练就强制停止了。</p>
+<p>而如果你是在 Tmux 里的训练的，那没有任何问题，你只要重新 attach 回之前的那个 session 就行。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2020/11/22/XqCRiMG7oYpQyu9.png"
+        data-srcset="https://i.loli.net/2020/11/22/XqCRiMG7oYpQyu9.png, https://i.loli.net/2020/11/22/XqCRiMG7oYpQyu9.png 1.5x, https://i.loli.net/2020/11/22/XqCRiMG7oYpQyu9.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2020/11/22/XqCRiMG7oYpQyu9.png"
+        title="tmux.png" /></p>
+<h3 id="安装-tmux">安装 Tmux</h3>
+<p>首先先确认一下是否安装 Tmux，直接在终端输入<code>tmux</code>如果提醒命令没找到就使用<code>sudo apt install tmux</code>安装 tmux。然后再在终端输入<code>tmux</code>就可以建立一个新的会话。详细的<code>tmux</code>教程可以看 <a href="http://www.ruanyifeng.com/blog/2019/10/tmux.html" target="_blank" rel="noopener noreffer">Tmux 使用教程</a></p>
+<h3 id="舒服的配置">舒服的配置</h3>
+<h4 id="修改-prefix-键">修改 prefix 键</h4>
+<p>默认的 prefix 键是<code>Ctrl+b</code>键，也就是先按 prefix 键再加一个键组成完整的快捷键。<code>Ctrl+b</code>很难按的，即使是交换了 Ctrl 和 CapsLock 键之后依旧很难按。可以在配置文件<code>~/.tmux.conf</code>里加入下面这行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">bind C-f send-prefix -2
+</code></pre></td></tr></table>
+</div>
+</div><p>添加新的 prefix 键<code>Ctrl-f</code></p>
+<h4 id="分屏">分屏</h4>
+<p>默认的快捷键我忘了，但下面这个配置你肯定看了就不会忘。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">bind - splitw -v -c &#39;#{pane_current_path}&#39; # 垂直方向新增面板，默认进入当前目录
+bind \ splitw -h -c &#39;#{pane_current_path}&#39; # 水平方向新增面板，默认进入当前目录
+</code></pre></td></tr></table>
+</div>
+</div><p>使用<code>prefix+-</code>上下分屏；使用<code>prefix+\左右分屏</code>，因为上下分屏就是加一条横线（-），左右分屏就是加一条竖线（|也就是、键）。这样就不会忘了。</p>
+<h4 id="如何与-vim-联动">如何与 Vim 联动</h4>
+<p>tmux 可以分屏，Vim 也可以分出多个窗口，那么怎样在 tmux 和 vim 之间来回切换呢。</p>
+<p>在 Google 中键入 vim 和 tmux 两个关键词出来的第一条就是 <a href="https://github.com/christoomey/vim-tmux-navigator" target="_blank" rel="noopener noreffer">christoomey/vim-tmux-navigator</a>。在 vim 中安装此插件，并在。vimrc 和。tmux.conf 中分别添加相应的设置即可（详见此插件的 README）。
+按照 README 的配置完后可以使用<code>Ctrl</code>加<code>hjkl</code>进行窗口的切换。</p>
+<p>另一个插件 <a href="https://github.com/wellle/tmux-complete.vim" target="_blank" rel="noopener noreffer">wellle/tmux-complete.vim</a> 可以让你补全 tmux 里面的内容。</p>
+<h2 id="总结">总结</h2>
+<ul>
+<li>这套工作流可以全键盘操作，极其优雅 Geek</li>
+<li>上手难度有点高，不过完全值得</li>
+<li>无 GUI 没办法看图</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-11-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/myworkflow/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流" data-hashtags="Vim,Tmux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/myworkflow/" data-hashtag="Vim"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/myworkflow/" data-title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">Vim</a>,&nbsp;<a href="/tags/tmux/">Tmux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/app-0/" class="prev" rel="prev" title="👨‍💻Windows 下优秀软件推荐"><i class="fas fa-angle-left fa-fw"></i>👨‍💻Windows 下优秀软件推荐</a>
+            <a href="/shell-3/" class="next" rel="next" title="Zsh &amp; Zinit 配置舒服的终端环境">Zsh &amp; Zinit 配置舒服的终端环境<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Shell - 标签 - No Visitor Website</title>
+        <link>http://example.org/tags/shell/</link>
+        <description>Shell - 标签 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 24 Nov 2020 15:11:25 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/shell/" rel="self" type="application/rss+xml" /><item>
+    <title>Zsh &amp; Zinit 配置舒服的终端环境</title>
+    <link>http://example.org/shell-3/</link>
+    <pubDate>Tue, 24 Nov 2020 15:11:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/shell-3/</guid>
+    <description><![CDATA[为什么不用Bash和Fish Bash是很多Linux发行版的默认shell，但是显然他不是一个最佳的选择，单颜值不够高一条就足以把它抛弃了。]]></description>
+</item><item>
+    <title>节省手指关节耐久 -- Zsh 快捷键</title>
+    <link>http://example.org/shell-2/</link>
+    <pubDate>Sun, 20 May 2018 17:41:14 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/shell-2/</guid>
+    <description><![CDATA[使用终端是一件很爽的事情，啪啪啪敲完一行命令然后 Hit Enter 自然是 Linux User 的最爱。 但有时候不是忘了加sudo就是又把-摁成了0. 这时候狂摁方向键就显得不]]></description>
+</item></channel>
+</rss>

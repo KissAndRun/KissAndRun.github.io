@@ -1,0 +1,77 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>折腾指南 - 分类 - No Visitor Website</title>
+        <link>http://example.org/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/</link>
+        <description>折腾指南 - 分类 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 26 Nov 2020 16:02:29 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/" rel="self" type="application/rss+xml" /><item>
+    <title>使用Vim进行Python科学计算编程</title>
+    <link>http://example.org/vim_python/</link>
+    <pubDate>Thu, 26 Nov 2020 16:02:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vim_python/</guid>
+    <description><![CDATA[Python 作为一种脚本代码，不需要配置复杂的编译环境，而 Vim 具有优秀的英文编辑能力，使用Vim编辑Python是非常不错的选择。科学计算使用 Anaconda 构建虚拟]]></description>
+</item><item>
+    <title>WSL使用本地代理和git clone加速</title>
+    <link>http://example.org/git_speedup/</link>
+    <pubDate>Wed, 25 Nov 2020 11:52:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/git_speedup/</guid>
+    <description><![CDATA[平时科学上网时，一般的流程都是这样的，在一个客户端中配置你的V2ray，Trojan信息，然后客户端会设置一个本地的监听端口，常用的比如10]]></description>
+</item><item>
+    <title>Zsh &amp; Zinit 配置舒服的终端环境</title>
+    <link>http://example.org/shell-3/</link>
+    <pubDate>Tue, 24 Nov 2020 15:11:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/shell-3/</guid>
+    <description><![CDATA[为什么不用Bash和Fish Bash是很多Linux发行版的默认shell，但是显然他不是一个最佳的选择，单颜值不够高一条就足以把它抛弃了。]]></description>
+</item><item>
+    <title>SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流</title>
+    <link>http://example.org/myworkflow/</link>
+    <pubDate>Sun, 22 Nov 2020 20:01:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/myworkflow/</guid>
+    <description><![CDATA[作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无]]></description>
+</item><item>
+    <title>👨‍💻Windows 下优秀软件推荐</title>
+    <link>http://example.org/app-0/</link>
+    <pubDate>Wed, 24 Jun 2020 15:11:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/app-0/</guid>
+    <description><![CDATA[macOS下有很多优秀的软件，极大的提升了生产力。人们提到Windows系统下的软件，第一感觉可能是：多而乱，良莠不齐。而且由于不少国产软件]]></description>
+</item><item>
+    <title>✔️WSL2 折腾日记和使用体验报告</title>
+    <link>http://example.org/wsl-0/</link>
+    <pubDate>Tue, 23 Jun 2020 13:36:53 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/wsl-0/</guid>
+    <description><![CDATA[疫情期间，迫于撰写毕业论文和大量的网络会议需求，我将自己的主力系统换到了 Windows 10，前几天又加入了预览者计划，更新到了最新的20H2 版本，该版本]]></description>
+</item><item>
+    <title>🔧第 N 次的 Vim 入门记录</title>
+    <link>http://example.org/vim-0/</link>
+    <pubDate>Fri, 05 Jun 2020 00:26:40 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vim-0/</guid>
+    <description><![CDATA[不学个一个月就什么都学不会 本着这样的理念，决定推出每日学习计划每项学习任务的周期为一个月，坚持每日学习，每日码字。实验小白鼠为早就想学的 vi]]></description>
+</item><item>
+    <title>每日学习 MySQL 计划</title>
+    <link>http://example.org/sql-begin/</link>
+    <pubDate>Tue, 25 Dec 2018 01:32:06 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/sql-begin/</guid>
+    <description><![CDATA[上一个计划“每日学习 vim 计划”在今天晚上（圣诞节）结束了，感觉效果挺好；虽然只存活了 10 天；但是 vim 是曾经接触过，所以计划就提前结束了； 这次开始学]]></description>
+</item><item>
+    <title>我的 Vimrc 快捷键备忘</title>
+    <link>http://example.org/vimrcnote/</link>
+    <pubDate>Mon, 17 Dec 2018 11:16:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vimrcnote/</guid>
+    <description><![CDATA[我的 Vim 配置文件放置在我的 Github 上，如有兴趣可以查阅 在尝试了很多集成性很高的 Vim 配置（比如 SpaceVim 和 rafi 大神的配置）之后，我决定重新使用和打磨自己的配置。原]]></description>
+</item><item>
+    <title>节省手指关节耐久 -- Zsh 快捷键</title>
+    <link>http://example.org/shell-2/</link>
+    <pubDate>Sun, 20 May 2018 17:41:14 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/shell-2/</guid>
+    <description><![CDATA[使用终端是一件很爽的事情，啪啪啪敲完一行命令然后 Hit Enter 自然是 Linux User 的最爱。 但有时候不是忘了加sudo就是又把-摁成了0. 这时候狂摁方向键就显得不]]></description>
+</item></channel>
+</rss>

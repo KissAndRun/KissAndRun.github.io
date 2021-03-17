@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Numpy - 标签 - No Visitor Website</title>
+        <link>http://example.org/tags/numpy/</link>
+        <description>Numpy - 标签 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Dec 2017 15:36:17 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/numpy/" rel="self" type="application/rss+xml" /><item>
+    <title>🐍Numpy 中神奇的切片</title>
+    <link>http://example.org/learning-python-6/</link>
+    <pubDate>Mon, 25 Dec 2017 15:36:17 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-6/</guid>
+    <description><![CDATA[为什么要写切片呢，因为当时看书学切片的时候，感觉这东西和 MATLAB 和 numpy 里面很像，就粗略的看了一下但没有仔细的深究，但每次用的时候都觉得需要查一下怎么]]></description>
+</item></channel>
+</rss>

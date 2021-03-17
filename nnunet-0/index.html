@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>nnUNet 使用不完全指南（上） - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="nnUNet 使用不完全指南（上）" />
+<meta property="og:description" content="nnUNet 使用教程 nnUNet 是一个专门用于医学图像的深度学习程序。使用 nnUNet 可以很方便的进行网络的训练和预测。他的集成度很高，能自动的进行合适的预处理，自动的选" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/nnunet-0/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2021-03-14T16:35:47+08:00" />
+<meta property="article:modified_time" content="2021-03-14T16:35:47+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="nnUNet 使用不完全指南（上）"/>
+<meta name="twitter:description" content="nnUNet 使用教程 nnUNet 是一个专门用于医学图像的深度学习程序。使用 nnUNet 可以很方便的进行网络的训练和预测。他的集成度很高，能自动的进行合适的预处理，自动的选"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/nnunet-0/" /><link rel="prev" href="http://example.org/vim_python/" /><link rel="next" href="http://example.org/nnunet-1/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "nnUNet 使用不完全指南（上）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/nnunet-0\/"
+        },"genre": "posts","wordcount":  2342 ,
+        "url": "http:\/\/example.org\/nnunet-0\/","datePublished": "2021-03-14T16:35:47+08:00","dateModified": "2021-03-14T16:35:47+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">nnUNet 使用不完全指南（上）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-14">2021-03-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2342 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#用nnunet训练自己的数据">用nnUNet训练自己的数据</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="nnunet-使用教程">nnUNet 使用教程</h1>
+<p><strong>nnUNet</strong> 是一个专门用于医学图像的深度学习程序。使用 <strong>nnUNet</strong> 可以很方便的进行网络的训练和预测。他的集成度很高，能自动的进行合适的预处理，自动的选择合适的网络。 <strong>nnUNet</strong> 的官方 <strong>github</strong> 地址是<a href="https://github.com/MIC-DKFZ/nnUNet" target="_blank" rel="noopener noreffer">https://github.com/MIC-DKFZ/nnUNet</a>。在 <strong>github</strong> 里面有英文版的详细教程。网上也有一个不错的教程，地址是<a href="https://blog.csdn.net/weixin_42061636/article/details/107623757" target="_blank" rel="noopener noreffer">https://blog.csdn.net/weixin_42061636/article/details/107623757</a>。这两篇再加本教程可以交叉看，如有出入，<strong>github</strong> 上的肯定是权威。本文在<a href="https://kissandrun.github.io" target="_blank" rel="noopener noreffer">kissandrun.github.io</a>持续更新。</p>
+<h2 id="安装">安装</h2>
+<p>首先是安装部分。默认读者使用<strong>Linux</strong>环境，nnUNet并没有提供其他平台的支持。<strong>nnUNet</strong>是基于<strong>Python</strong>和<strong>PyTorch</strong>。所以首先得安装这两个，这里推荐使用<strong>Anaconda</strong>安装。具体步骤如下：</p>
+<ol>
+<li>
+<p>查看一下系统是否已经安装完<strong>Anaconda</strong>环境。在终端中直接输入<strong>conda</strong>，然后回车。如果出现下面字样以及一堆使用方法，则环境已存在<strong>conda</strong>无需安装<strong>Anaconda</strong>。直接跳至第二步。如果提示命令不存在，则参考<a href="https://blog.csdn.net/lwgkzl/article/details/89329383" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lwgkzl/article/details/89329383</a>。（记得安装最新的版本！）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/jzh8N3LCsiltDrb.png"
+        data-srcset="https://i.loli.net/2021/03/15/jzh8N3LCsiltDrb.png, https://i.loli.net/2021/03/15/jzh8N3LCsiltDrb.png 1.5x, https://i.loli.net/2021/03/15/jzh8N3LCsiltDrb.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/jzh8N3LCsiltDrb.png"
+        title="image-20210315214305283" /></p>
+</li>
+<li>
+<p>装完conda，然后新建一个环境，专门用于<strong>nnUNet</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">conda create --name nnunet python=3.8
+</code></pre></td></tr></table>
+</div>
+</div><p>然后激活这个环境。（之后如果新开终端，每次都要激活环境）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">conda activate nnunet
+</code></pre></td></tr></table>
+</div>
+</div><p>详细的conda手册参考：<a href="https://docs.conda.io/projects/conda/en/4.6.1/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands" target="_blank" rel="noopener noreffer">https://docs.conda.io/projects/conda/en/4.6.1/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands</a></p>
+</li>
+<li>
+<p>安装<strong>PyTorch</strong>。终端输入以下命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
+</code></pre></td></tr></table>
+</div>
+</div><p>check一下是否成功。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/OhWJzM1laq5PciY.png"
+        data-srcset="https://i.loli.net/2021/03/15/OhWJzM1laq5PciY.png, https://i.loli.net/2021/03/15/OhWJzM1laq5PciY.png 1.5x, https://i.loli.net/2021/03/15/OhWJzM1laq5PciY.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/OhWJzM1laq5PciY.png"
+        title="image-20210315215900772" /></p>
+<p>如果能正确输出，则<strong>pytorch</strong>安装正确，且能使用<strong>GPU</strong>加速。</p>
+</li>
+<li>
+<p>在这个环境中安装<strong>nnUNet</strong>。终端中输入以下命令即可。（也可以使用<a href="https://blog.csdn.net/weixin_42061636/article/details/107623757" target="_blank" rel="noopener noreffer">csdn上的教程</a>中的那种安装方式)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install nnunet
+</code></pre></td></tr></table>
+</div>
+</div><p>check一下是否成功</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/UBfhoG6KZ4Tbdjr.png"
+        data-srcset="https://i.loli.net/2021/03/15/UBfhoG6KZ4Tbdjr.png, https://i.loli.net/2021/03/15/UBfhoG6KZ4Tbdjr.png 1.5x, https://i.loli.net/2021/03/15/UBfhoG6KZ4Tbdjr.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/UBfhoG6KZ4Tbdjr.png"
+        title="image-20210315220043816" /></p>
+<p>如果能<strong>import nnunet</strong>正常输出，则nnUNet安装正确。而且输入<strong>which nnUNet_train</strong> 会有输出</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/iDUe3k6HYlfZtzM.png"
+        data-srcset="https://i.loli.net/2021/03/15/iDUe3k6HYlfZtzM.png, https://i.loli.net/2021/03/15/iDUe3k6HYlfZtzM.png 1.5x, https://i.loli.net/2021/03/15/iDUe3k6HYlfZtzM.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/iDUe3k6HYlfZtzM.png"
+        title="image-20210315231329739" /></p>
+</li>
+</ol>
+<h2 id="用nnunet训练自己的数据">用nnUNet训练自己的数据</h2>
+<ol>
+<li>
+<p>设置环境变量。</p>
+<p>在合适的地方新建如下三个文件夹，分别存放预处理后的图像，原始的图像和训练完成的模型。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/Yu4D7CTZINsg1wy.png"
+        data-srcset="https://i.loli.net/2021/03/15/Yu4D7CTZINsg1wy.png, https://i.loli.net/2021/03/15/Yu4D7CTZINsg1wy.png 1.5x, https://i.loli.net/2021/03/15/Yu4D7CTZINsg1wy.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/Yu4D7CTZINsg1wy.png"
+        title="image-20210315223930060" /></p>
+<p>修改Home目录下的.bashrc文件，在最后加入下面内容(!<strong>注意这三个目录应该是对应自己的</strong>)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export nnUNet_raw_data_base=&#34;/media/fabian/nnUNet_raw&#34;                   
+export nnUNet_preprocessed=&#34;/media/fabian/nnUNet_preprocessed&#34;
+export RESULTS_FOLDER=&#34;/media/fabian/nnUNet_trained_models&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>保存之后，在终端中输入以下命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">source ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>整理数据</p>
+<p><strong>nnUNet</strong> 对数据的命名和结构都有严格的要求，需要调整自己的数据才能给<strong>nnUNet</strong>使用。在上面新建的<strong>nnUNet_raw</strong>下面再新建<strong>nnUNet_raw_data</strong>文件夹。然后在<strong>nnUNet_raw_data</strong>下新建文件 <strong>TaskXXX_任务名</strong>。 <strong>XXX</strong>是任务序号(大于100的数，前100被占用了)，任务名取一个好记的英文名。</p>
+<p>最后的文件结构如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nnUNet_raw/nnUNet_raw_data/
+├── Task001_BrainTumour
+├── Task002_Heart
+├── Task003_Liver
+├── Task004_Hippocampus
+├── Task005_Prostate
+├── ...
+</code></pre></td></tr></table>
+</div>
+</div><p>然后在任务文件夹里构建如下结构</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Task001_BrainTumour/
+├── dataset.json
+├── imagesTr
+├── (imagesTs)
+└── labelsTr
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>imagesTr</strong> 和 <strong>labelsTr</strong> 分别存放训练的原图和标签。<strong>imagesTs</strong>存放测试的原图。<strong>dataset.json</strong> 下面会说。</p>
+</li>
+<li>
+<p>图像命名</p>
+<p><strong>imagesTr</strong> 和 <strong>labelsTr</strong> 中图像的命名也有要求。其中<strong>imagesTr</strong>需要改成类似下图这样，而且必须是 <strong>.nii.gz</strong> 格式。建议写个 <strong>python</strong> 脚本批量重命名并保存成 <strong>.nii.gz</strong> 格式。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/1h4BbdVPoCUyt5r.png"
+        data-srcset="https://i.loli.net/2021/03/15/1h4BbdVPoCUyt5r.png, https://i.loli.net/2021/03/15/1h4BbdVPoCUyt5r.png 1.5x, https://i.loli.net/2021/03/15/1h4BbdVPoCUyt5r.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/1h4BbdVPoCUyt5r.png"
+        title="image-20210315230106817" /></p>
+<p><strong>labelsTr</strong>需要改成如下样式，注意原图和标签图序号一一对应，只是原图后面带**_0000**。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/RbCvSf6uEWXtK5M.png"
+        data-srcset="https://i.loli.net/2021/03/15/RbCvSf6uEWXtK5M.png, https://i.loli.net/2021/03/15/RbCvSf6uEWXtK5M.png 1.5x, https://i.loli.net/2021/03/15/RbCvSf6uEWXtK5M.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/RbCvSf6uEWXtK5M.png"
+        title="image-20210315230322999" /></p>
+<p><strong>imagesTs</strong>改成如下，无需从0开始标号，可以接着训练集继续标下去，比较方便。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/15/jL4xWvB2rP1taEo.png"
+        data-srcset="https://i.loli.net/2021/03/15/jL4xWvB2rP1taEo.png, https://i.loli.net/2021/03/15/jL4xWvB2rP1taEo.png 1.5x, https://i.loli.net/2021/03/15/jL4xWvB2rP1taEo.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/15/jL4xWvB2rP1taEo.png"
+        title="image-20210315232305262" /></p>
+</li>
+<li>
+<p><strong>dataset.json</strong>编写</p>
+<p>上文说到这个任务文件夹应该包含一个<strong>dataset.json</strong> 文件。下面是一个例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Task128_LungLobe&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;labels&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;0&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;1&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;2&#34;</span><span class="p">:</span> <span class="s2">&#34;2&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;3&#34;</span><span class="p">:</span> <span class="s2">&#34;3&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;4&#34;</span><span class="p">:</span> <span class="s2">&#34;4&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;5&#34;</span><span class="p">:</span> <span class="s2">&#34;5&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;licence&#34;</span><span class="p">:</span> <span class="s2">&#34;see challenge website&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;modality&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;0&#34;</span><span class="p">:</span> <span class="s2">&#34;CT&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Task128_LungLobe&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;numTest&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&#34;numTraining&#34;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="nt">&#34;reference&#34;</span><span class="p">:</span> <span class="s2">&#34;see challenge website&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;release&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;tensorImageSize&#34;</span><span class="p">:</span> <span class="s2">&#34;4D&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&#34;./imagesTs/LungLobe_080.nii.gz&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;./imagesTs/LungLobe_081.nii.gz&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;./imagesTs/LungLobe_082.nii.gz&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;./imagesTs/LungLobe_083.nii.gz&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;./imagesTs/LungLobe_084.nii.gz&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;./imagesTs/LungLobe_085.nii.gz&#34;</span>
+    <span class="p">],</span>
+    <span class="nt">&#34;training&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_000.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_000.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_001.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_001.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_002.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_002.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_003.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_003.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_004.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_004.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_005.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_005.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_006.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_006.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_007.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_007.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_008.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_008.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_009.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_009.nii.gz&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_010.nii.gz&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_010.nii.gz&#34;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>按自己的任务的属性，修改上面的<strong>labels</strong>，<strong>numTest</strong>等等信息。注意：这里<strong>image</strong>的文件名里没有 <strong>_0000</strong> 。但是修改这个json文件夹的工作量是比较大的，也可以写个 <strong>python</strong> 脚本自动生成。下面是例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">batchgenerators.utilities.file_and_folder_operations</span> <span class="kn">import</span> <span class="n">save_json</span>
+   
+   
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">foldername</span> <span class="o">=</span> <span class="s2">&#34;Task128_LungLobe&#34;</span>
+    <span class="n">numTraining</span> <span class="o">=</span> <span class="mi">80</span>
+    <span class="n">numTest</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">numClass</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">json_dict</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">foldername</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">foldername</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;tensorImageSize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;4D&#34;</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;reference&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;see challenge website&#34;</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;licence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;see challenge website&#34;</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;release&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;0.0&#34;</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;modality&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;0&#34;</span><span class="p">:</span> <span class="s2">&#34;CT&#34;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numClass</span><span class="p">)}</span>
+   
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;numTraining&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numTraining</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;numTest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numTest</span>
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;training&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="s2">&#34;./imagesTr/LungLobe_{:0&gt;3d}.nii.gz&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                              <span class="s2">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;./labelsTr/LungLobe_{:0&gt;3d}.nii.gz&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span>
+                             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numTraining</span><span class="p">)]</span>
+   
+    <span class="n">json_dict</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;./imagesTs/LungLobe_{:0&gt;3d}.nii.gz&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numTraining</span><span class="p">,</span> <span class="n">numTraining</span><span class="o">+</span><span class="n">numTest</span><span class="p">)]</span>
+   
+    <span class="n">save_json</span><span class="p">(</span><span class="n">json_dict</span><span class="p">,</span> <span class="s2">&#34;./dataset.json&#34;</span><span class="p">)</span>
+   
+   
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+   
+</code></pre></td></tr></table>
+</div>
+</div><p>需要发挥一点主观能动性，修改一下使之适应自己的任务。</p>
+</li>
+<li>
+<p>整理完数据，运行下面命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
+</code></pre></td></tr></table>
+</div>
+</div><p>XXX 代替为你的任务序号。该命令进行预处理。</p>
+</li>
+<li>
+<p>开始训练。</p>
+<p>单卡训练：执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nnUNet_train 3d_fullres nnUNetTrainerV2 XXX 0
+</code></pre></td></tr></table>
+</div>
+</div><p>意思是对序号为XXX的任务进行第0折交叉验证，训练模式是3d的全像素。一共有五折交叉验证，所以最后一个数为0-4。</p>
+<p>注意：默认在第一块 <strong>gpu</strong>（索引为0）上进行训练，如果想指定某个gpu，请先执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export CUDA_VISIBLE_DEVICES=X
+</code></pre></td></tr></table>
+</div>
+</div><p>X为你指定的gpu索引。再执行上面的命令。</p>
+<p>多卡训练：比如我现在要在0和1两张卡上执行训练：
+先执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export CUDA_VISIBLE_DEVICES=0,1
+</code></pre></td></tr></table>
+</div>
+</div><p>再执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nnUNet_train_DP 3d_fullres nnUNetTrainerV2_DP XXX 0 -gpus 2
+</code></pre></td></tr></table>
+</div>
+</div><p>实验证明多卡训练速度和单卡训练速度的差别不大，只是为了减少每张卡的使用显存来弥补单卡显存不足的情况。</p>
+<p>参考：<a href="https://blog.csdn.net/weixin_42061636/article/details/107623757" target="_blank" rel="noopener noreffer">https://blog.csdn.net/weixin_42061636/article/details/107623757</a></p>
+</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-14</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/nnunet-0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/nnunet-0/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/nnunet-0/" data-title="nnUNet 使用不完全指南（上）"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/vim_python/" class="prev" rel="prev" title="使用Vim进行Python科学计算编程"><i class="fas fa-angle-left fa-fw"></i>使用Vim进行Python科学计算编程</a>
+            <a href="/nnunet-1/" class="next" rel="next" title="nnUNet 使用不完全指南（下）">nnUNet 使用不完全指南（下）<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

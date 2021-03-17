@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>✔️WSL2 折腾日记和使用体验报告 - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="✔️WSL2 折腾日记和使用体验报告" />
+<meta property="og:description" content="疫情期间，迫于撰写毕业论文和大量的网络会议需求，我将自己的主力系统换到了 Windows 10，前几天又加入了预览者计划，更新到了最新的20H2 版本，该版本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/wsl-0/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2020-06-23T13:36:53+08:00" />
+<meta property="article:modified_time" content="2020-06-23T13:36:53+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="✔️WSL2 折腾日记和使用体验报告"/>
+<meta name="twitter:description" content="疫情期间，迫于撰写毕业论文和大量的网络会议需求，我将自己的主力系统换到了 Windows 10，前几天又加入了预览者计划，更新到了最新的20H2 版本，该版本"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/wsl-0/" /><link rel="prev" href="http://example.org/vim-0/" /><link rel="next" href="http://example.org/app-0/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "✔️WSL2 折腾日记和使用体验报告",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/wsl-0\/"
+        },"genre": "posts","keywords": "WSL, Windows","wordcount":  1558 ,
+        "url": "http:\/\/example.org\/wsl-0\/","datePublished": "2020-06-23T13:36:53+08:00","dateModified": "2020-06-23T13:36:53+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">✔️WSL2 折腾日记和使用体验报告</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-23">2020-06-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1558 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#wsl2-的安装"><strong>WSL2</strong> 的安装</a></li>
+    <li><a href="#终端的选择--wsl-terminal">终端的选择&ndash;<strong>wsl-terminal</strong></a></li>
+    <li><a href="#使用fish作为-shell我又换回去了哈哈哈">使用<strong>fish</strong>作为 shell（我又换回去了，哈哈哈）</a></li>
+    <li><a href="#个人使用的一些tips">个人使用的一些<strong>Tips</strong></a></li>
+    <li><a href="#使用的一些痛点">使用的一些痛点</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>疫情期间，迫于撰写毕业论文和大量的网络会议需求，我将自己的主力系统换到了 <strong>Windows 10</strong>，前几天又加入了预览者计划，更新到了最新的<strong>20H2 <strong>版本，该版本能够体验到最新的</strong>WSL2</strong>。**WSL2 <strong>据说相对于</strong>WSL1 <strong>有了很大的性能提升，尤其是</strong>I/O <strong>性能。但对于我这个菜鸟使用者，估计是体验不出太大的差别。既然已经转移到了</strong>Windows 10 <strong>下面，那么体验一下</strong>WSL2 **是必须的。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/wsl.jpg"
+        data-srcset="/images/wsl.jpg, /images/wsl.jpg 1.5x, /images/wsl.jpg 2x"
+        data-sizes="auto"
+        alt="/images/wsl.jpg"
+        title="wsl" /></p>
+<h2 id="wsl2-的安装"><strong>WSL2</strong> 的安装</h2>
+<p>**WSL2 **的安装网上教程太多了，就不赘述了，给个链接吧：<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank" rel="noopener noreffer">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
+<p>有一点需要注意，网上很多教程都是安装完直接使用<strong>root <strong>账户进行使用的，这样做能够极大方便使用，但也非常的危险，一般还是推荐使用非</strong>root <strong>账户。至于 Linux 发行版的选择，我之前使用的是 <a href="https://github.com/yuk7/ArchWSL" target="_blank" rel="noopener noreffer">ArchWSL</a>, 这是一个第三方维护的 Arch 版本，使用完全没有问题，也能使用 Pacman 和 Aur，后来我使用的是官方维护的</strong>Ubuntu 20.04</strong>，安装软件相比于 Arch 麻烦一点，但毕竟是官方维护，用着更放心。</p>
+<h2 id="终端的选择--wsl-terminal">终端的选择&ndash;<strong>wsl-terminal</strong></h2>
+<p>至于终端的选择，我使用的是 wsl-terminal。至于为什么不使用微软新推出的 Windows Terminal，原因主要有以下几点：</p>
+<ul>
+<li>渲染问题。使用 Windows Termianl 打开 Vim 时，四周会出现空白，和 Vim 的 Theme 不一致。而使用 wsl-terminal 则不会，wsl-terminal 具有和原本 Linux 系统相同的渲染。</li>
+<li>当我使用 Windows Terminal 时，它还没有在该目录打开 Terminal 的功能，不过在最新的预览版中已经更新。</li>
+<li>wsl-terminal 可以右击使用 WSL2 中的 Vim 打开文本文件，十分方便。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/screenfetch.png"
+        data-srcset="/images/screenfetch.png, /images/screenfetch.png 1.5x, /images/screenfetch.png 2x"
+        data-sizes="auto"
+        alt="/images/screenfetch.png"
+        title="/images/screenfetch.png" /></p>
+<p>可以设置打开 wsl-terminal 的快捷键，可以使用 Autohotkey 脚本实现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">RunOrActivate(Target, WinTitle = &#34;&#34;, Parameters = &#34;&#34;)
+{
+   ; Get the filename without a path
+   SplitPath, Target, TargetNameOnly
+
+   Process, Exist, %TargetNameOnly%
+   If ErrorLevel &gt; 0
+      PID = %ErrorLevel%
+   Else
+      Run, %Target% &#34;%Parameters%&#34;, , , PID
+
+   ; At least one app (Seapine TestTrack wouldn&#39;t always become the active
+   ; window after using Run), so we always force a window activate.
+   ; Activate by title if given, otherwise use PID.
+   If WinTitle &lt;&gt; 
+   {
+      SetTitleMatchMode, 2
+      WinWait, %WinTitle%, , 3
+      WinActivate, %WinTitle%
+   }
+   Else
+   {
+      WinWait, ahk_pid %PID%, , 3
+      WinActivate, ahk_pid %PID%
+   }
+}
+
+RunOrActivateMultiParam(Target, WinTitle = &#34;&#34;, Param1 = &#34;&#34;, Param2 = &#34;&#34;, Param3 = &#34;&#34;)
+{
+   ; Get the filename without a path
+   SplitPath, Target, TargetNameOnly
+
+   Process, Exist, %TargetNameOnly%
+   If ErrorLevel &gt; 0
+      PID = %ErrorLevel%
+   Else
+      Run, %Target% &#34;%Param1%&#34; &#34;%Param2%&#34; &#34;%Param3%&#34;, , , PID
+
+   ; At least one app (Seapine TestTrack wouldn&#39;t always become the active
+   ; window after using Run), so we always force a window activate.
+   ; Activate by title if given, otherwise use PID.
+   If WinTitle &lt;&gt; 
+   {
+      SetTitleMatchMode, 2
+      WinWait, %WinTitle%, , 3
+      WinActivate, %WinTitle%
+   }
+   Else
+   {
+      WinWait, ahk_pid %PID%, , 3
+      WinActivate, ahk_pid %PID%
+   }
+}
+
+!Enter::RunOrActivateMultiParam(&#34;C:\Program Files\WSL-Terminal\open-wsl.exe&#34;,&#34;&#34;,&#34;-C&#34;,&#34;~&#34;,&#34; &#34;)
+</code></pre></td></tr></table>
+</div>
+</div><p>该程序还可以设置其他程序的打开快捷键，十分便利。</p>
+<h2 id="使用fish作为-shell我又换回去了哈哈哈">使用<strong>fish</strong>作为 shell（我又换回去了，哈哈哈）</h2>
+<p>本次转移，还有一个重要的变化是，使用<strong>fish <strong>代替原本的</strong>zsh + oh my zsh</strong>。替换的主要原因是，使用后者的启动速度过慢。作为一个菜鸟使用者，<strong>fish <strong>并不兼容 Bash 的缺点根本无法感知，而</strong>fish <strong>集成的语法高亮，输入提示等能够完全替代</strong>oh my zsh</strong>。</p>
+<p>但是，必要的设置还是需要的，fish 的设置文件在<code>~/.config/fish/config.fish</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">set PATH &#34;/home/kissandrun/node/bin:$PATH&#34;
+set PATH &#34;/home/kissandrun/.local/bin:$PATH&#34;
+if test -f /home/kissandrun/.autojump/share/autojump/autojump.fish; . /home/kissandrun/.autojump/share/autojump/autojump.fish; end
+
+alias vim=nvim
+alias configfish=&#34;nvim /home/kissandrun/.config/fish/config.fish&#34;
+alias wcd=&#34;cd /mnt/c/Users/Run/&#34;
+
+# &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
+# !! Contents within this block are managed by &#39;conda init&#39; !!
+eval /home/kissandrun/anaconda3/bin/conda &#34;shell.fish&#34; &#34;hook&#34; $argv | source
+# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+</code></pre></td></tr></table>
+</div>
+</div><p>其中可以加入一些 <strong>alias</strong>，和环境配置。</p>
+<h2 id="个人使用的一些tips">个人使用的一些<strong>Tips</strong></h2>
+<ol>
+<li>使用 WSL 后，一台电脑就相当于有两个 home 了，一个是 Win10 的 home 目录，一个是 wsl 中帐号的 home 目录，这两个目录并不是同一个，可以将 Win10 目录中的 Downloads 和 Document 使用<code>ln -s</code>命令链接到 wsl 中的 home 以方便进入，也可以 alias 进入各个 Win10 目录的命令。</li>
+<li>可以在 windows 的 explorer 中将 home 目录放置在常用目录里面，方便进入。</li>
+<li>**Visual Studio Code <strong>和</strong> JetBrains **已经很好的支持了 WSL。</li>
+<li>在 wsl 中可以直接使用 windows 中的程序。比如在命令中输入<code>explorer.exe .</code>可以直接打开当前目录。输入命令<code>code</code>可以打开** Visual Studio Code**。</li>
+<li>可以在 Vim 中设置，实现粘贴板的通信。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    let s:clip = &#39;/mnt/c/Windows/System32/clip.exe&#39; 
+    if executable(s:clip)
+        augroup WSLYank
+            autocmd!
+            autocmd TextYankPost * call system(&#39;echo &#39;.shellescape(join(v:event.regcontents, &#34;\&lt;CR&gt;&#34;)).&#39; | &#39;.s:clip)
+        augroup END
+    end
+    &#34; I thought this will be better :)
+    noremap &lt;leader&gt;p :exe &#39;norm a&#39;.system(&#39;/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard&#39;)&lt;CR&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用的一些痛点">使用的一些痛点</h2>
+<ol>
+<li>WSL 暂不支持<code>systemd</code></li>
+<li>想用的 Arch 发行版，没有官方的支持</li>
+<li>粘贴板并不互通</li>
+<li>打开速度可以更快</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-06-23</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/wsl-0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告" data-hashtags="WSL,Windows"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/wsl-0/" data-hashtag="WSL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/wsl-0/" data-title="✔️WSL2 折腾日记和使用体验报告"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/wsl/">WSL</a>,&nbsp;<a href="/tags/windows/">Windows</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/vim-0/" class="prev" rel="prev" title="🔧第 N 次的 Vim 入门记录"><i class="fas fa-angle-left fa-fw"></i>🔧第 N 次的 Vim 入门记录</a>
+            <a href="/app-0/" class="next" rel="next" title="👨‍💻Windows 下优秀软件推荐">👨‍💻Windows 下优秀软件推荐<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

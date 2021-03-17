@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Zsh &amp; Zinit 配置舒服的终端环境 - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="Zsh &amp; Zinit 配置舒服的终端环境" />
+<meta property="og:description" content="为什么不用Bash和Fish Bash是很多Linux发行版的默认shell，但是显然他不是一个最佳的选择，单颜值不够高一条就足以把它抛弃了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/shell-3/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2020-11-24T15:11:25+08:00" />
+<meta property="article:modified_time" content="2020-11-24T15:11:25+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="Zsh &amp; Zinit 配置舒服的终端环境"/>
+<meta name="twitter:description" content="为什么不用Bash和Fish Bash是很多Linux发行版的默认shell，但是显然他不是一个最佳的选择，单颜值不够高一条就足以把它抛弃了。"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/shell-3/" /><link rel="prev" href="http://example.org/myworkflow/" /><link rel="next" href="http://example.org/git_speedup/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Zsh \u0026 Zinit 配置舒服的终端环境",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/shell-3\/"
+        },"genre": "posts","keywords": "Shell","wordcount":  874 ,
+        "url": "http:\/\/example.org\/shell-3\/","datePublished": "2020-11-24T15:11:25+08:00","dateModified": "2020-11-24T15:11:25+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Zsh &amp; Zinit 配置舒服的终端环境</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-24">2020-11-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 874 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#为什么不用bash和fish">为什么不用Bash和Fish</a></li>
+        <li><a href="#为什么不用oh-my-zsh">为什么不用Oh-My-Zsh</a></li>
+        <li><a href="#zinit安装及配置">Zinit安装及配置</a>
+          <ul>
+            <li><a href="#我的配置">我的配置</a></li>
+            <li><a href="#速度测试">速度测试</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="为什么不用bash和fish">为什么不用Bash和Fish</h3>
+<p><code>Bash</code>是很多Linux发行版的默认shell，但是显然他不是一个最佳的选择，单颜值不够高一条就足以把它抛弃了。当我们厌烦了<code>Bash</code>的陈旧愚钝，自然是要去找更加智能更加顺手的工具。<code>Fish</code>和<code>Zsh</code>是两个热度很高的<code>Bash</code>替代者。<code>Fish</code>有个致命的缺点就是他不兼容<code>Bash</code>，这或多或少产生一些问题。经过了两个月试用<code>Fish</code>后，我果断抛弃了，重新回到了<code>Zsh</code>的怀抱。然而这次我没有选择<code>Oh-My-Zsh</code>这个非常火的高度集成<code>Zsh</code>配置，而是找到了<code>Zinit</code>。</p>
+<h3 id="为什么不用oh-my-zsh">为什么不用Oh-My-Zsh</h3>
+<p>当你在Google上搜索<code>Zsh</code>配置时，百分之九十的人都会让你一起装上<code>Oh-My-Zsh</code>，作为一个用了几年<code>OMZ</code>的人，我必须说它实在有点慢，使用<code>OMZ</code>打开终端竟然需要一两秒的时间。因为<code>OMZ</code>装了太多我不需要的插件了，他显得太臃肿。在我写这篇文章时，我又搜索了一下，看见这位博主对OMZ做了优化，提升了打开速度。<a href="https://blog.skk.moe/post/make-oh-my-zsh-fly/" target="_blank" rel="noopener noreffer">我就感觉到快 —— zsh 和 oh my zsh 冷启动速度优化 | Sukka&rsquo;s Blog (skk.moe)</a>感兴趣的也可以试试优化。</p>
+<p>但我要说的不是优化，而是直接抛弃<code>OMZ</code>，使用<code>Zinit</code>。它是一个插件管理器，可以管理你的插件，只安装那些有用的插件。那速度不就快了吗。而且<code>Zinit</code>可以安装<code>OMZ</code>里面的一些插件，只把你里面好用的拿过来装，简直杀人猪心。</p>
+<h3 id="zinit安装及配置">Zinit安装及配置</h3>
+<p><code> Zinit</code>的项目地址是:<a href="https://github.com/zdharma/zinit" target="_blank" rel="noopener noreffer">https://github.com/zdharma/zinit</a></p>
+<p>官方推荐的安装方法为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>他会安装在你的<code>home</code>目录，生成一个<code>.zinit</code>的文件夹。</p>
+<h4 id="我的配置">我的配置</h4>
+<p>下面是我的配置，基本只留了一些我需要的插件。将其复制到<code>.zshrc</code>然后source一下就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 语法高亮</span>
+zinit ice lucid <span class="nv">wait</span><span class="o">=</span><span class="s1">&#39;0&#39;</span> <span class="nv">atinit</span><span class="o">=</span><span class="s1">&#39;zpcompinit&#39;</span>
+zinit light zdharma/fast-syntax-highlighting
+
+<span class="c1"># 自动建议</span>
+zinit ice lucid <span class="nv">wait</span><span class="o">=</span><span class="s2">&#34;0&#34;</span> <span class="nv">atload</span><span class="o">=</span><span class="s1">&#39;_zsh_autosuggest_start&#39;</span>
+zinit light zsh-users/zsh-autosuggestions
+
+<span class="c1"># 补全</span>
+zinit ice lucid <span class="nv">wait</span><span class="o">=</span><span class="s1">&#39;0&#39;</span>
+zinit light zsh-users/zsh-completions
+
+<span class="c1"># 加载 OMZ 框架及部分插件</span>
+zinit snippet OMZ::lib/completion.zsh
+zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit snippet OMZ::plugins/autojump/autojump.plugin.zsh
+zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
+
+zinit load djui/alias-tips
+</code></pre></td></tr></table>
+</div>
+</div><p>这些插件基本是够用的，再配合一些快捷键就能高效进行终端操作了。常用的快捷键：<code>Ctrl-A</code>回到命令最开始。<code>Ctrl-E</code>回到命令末尾。<code>C-f</code>补全命令</p>
+<h4 id="速度测试">速度测试</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2020/11/24/yTYptPHO8ujmalZ.png"
+        data-srcset="https://i.loli.net/2020/11/24/yTYptPHO8ujmalZ.png, https://i.loli.net/2020/11/24/yTYptPHO8ujmalZ.png 1.5x, https://i.loli.net/2020/11/24/yTYptPHO8ujmalZ.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2020/11/24/yTYptPHO8ujmalZ.png"
+        title="UTOOLS_1606219121570.png" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-11-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/shell-3/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境" data-hashtags="Shell"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/shell-3/" data-hashtag="Shell"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/shell-3/" data-title="Zsh &amp; Zinit 配置舒服的终端环境"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/shell/">Shell</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/myworkflow/" class="prev" rel="prev" title="SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流"><i class="fas fa-angle-left fa-fw"></i>SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流</a>
+            <a href="/git_speedup/" class="next" rel="next" title="WSL使用本地代理和git clone加速">WSL使用本地代理和git clone加速<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

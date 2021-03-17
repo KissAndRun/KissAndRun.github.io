@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>WSL使用本地代理和git clone加速 - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="WSL使用本地代理和git clone加速" />
+<meta property="og:description" content="平时科学上网时，一般的流程都是这样的，在一个客户端中配置你的V2ray，Trojan信息，然后客户端会设置一个本地的监听端口，常用的比如10" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/git_speedup/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2020-11-25T11:52:27+08:00" />
+<meta property="article:modified_time" content="2020-11-25T11:52:27+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="WSL使用本地代理和git clone加速"/>
+<meta name="twitter:description" content="平时科学上网时，一般的流程都是这样的，在一个客户端中配置你的V2ray，Trojan信息，然后客户端会设置一个本地的监听端口，常用的比如10"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/git_speedup/" /><link rel="prev" href="http://example.org/shell-3/" /><link rel="next" href="http://example.org/vim_python/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "WSL使用本地代理和git clone加速",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/git_speedup\/"
+        },"genre": "posts","keywords": "WSL, Git","wordcount":  1038 ,
+        "url": "http:\/\/example.org\/git_speedup\/","datePublished": "2020-11-25T11:52:27+08:00","dateModified": "2020-11-25T11:52:27+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">WSL使用本地代理和git clone加速</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-25">2020-11-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1038 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#wsl使用本地代理">WSL使用本地代理</a>
+      <ul>
+        <li><a href="#proxychains-进行命令行加速"><strong>proxychains</strong> 进行命令行加速</a></li>
+        <li><a href="#设置all_proxy变量进行加速">设置ALL_PROXY变量进行加速</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-clone下载加速">git clone下载加速</a>
+      <ul>
+        <li><a href="#加速ssh协议">加速SSH协议</a></li>
+        <li><a href="#加速http协议">加速HTTP协议</a></li>
+      </ul>
+    </li>
+    <li><a href="#最好的方法">最好的方法</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>平时科学上网时，一般的流程都是这样的，在一个客户端中配置你的<strong>V2ray</strong>，<strong>Trojan</strong>信息，然后客户端会设置一个本地的监听端口，常用的比如<strong>1080</strong>端口，<strong>10808</strong>端口等等。常用的协议比如<strong>socks5</strong>或者<strong>http</strong>。如果你没有设置全局代理，那么此时你是无法科学上网的，一些软件提供了监听这些端口的功能，这样这个软件就可以科学上网了。</p>
+<p>以<strong>V2rayN</strong>这个客户端为例，</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2020/11/25/Ju9Q6ePs12XD7Vy.png"
+        data-srcset="https://i.loli.net/2020/11/25/Ju9Q6ePs12XD7Vy.png, https://i.loli.net/2020/11/25/Ju9Q6ePs12XD7Vy.png 1.5x, https://i.loli.net/2020/11/25/Ju9Q6ePs12XD7Vy.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2020/11/25/Ju9Q6ePs12XD7Vy.png"
+        title="UTOOLS_1606277244227.png" /></p>
+<p>可以看到他设置了<strong>10808</strong>端口为本地监听端口。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2020/11/25/W8Nq3d6obnC9puH.png"
+        data-srcset="https://i.loli.net/2020/11/25/W8Nq3d6obnC9puH.png, https://i.loli.net/2020/11/25/W8Nq3d6obnC9puH.png 1.5x, https://i.loli.net/2020/11/25/W8Nq3d6obnC9puH.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2020/11/25/W8Nq3d6obnC9puH.png"
+        title="UTOOLS_1606277027683.png" /></p>
+<p>如上图就是<strong>Telegram</strong>使用本地<strong>Socks5</strong>的<strong>10808</strong>端口进行科学上网的设置。</p>
+<h2 id="wsl使用本地代理">WSL使用本地代理</h2>
+<p><strong>Windows Subsystem for Linux</strong> 和 <strong>Windows</strong> 是共享端口的，也就是<strong>Windows</strong>的<strong>10808</strong>端口和<strong>WSL</strong> 的<strong>10808</strong>端口是同一个，所以使用这个端口便可以给<strong>WSL</strong>进行科学上网和<strong>Git</strong>加速。</p>
+<h3 id="proxychains-进行命令行加速"><strong>proxychains</strong> 进行命令行加速</h3>
+<p><strong>proxychains</strong>是一个可以让你的命令通过代理运行的linux命令。安装方法如下：</p>
+<blockquote>
+<p>sudo apt install proxychains</p>
+</blockquote>
+<p>安装完之后需要对其进行配置，编辑 <strong>/etc/proxychains.conf</strong>文件。修改最后一行为如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to &#34;tor&#34;
+socks5 	127.0.0.1 10808
+</code></pre></td></tr></table>
+</div>
+</div><p>然后你只需要在平时的命令前加上<strong>proxychains</strong> 就可以了，比如</p>
+<blockquote>
+<p>proxychains git clone &hellip;&hellip;&hellip;</p>
+</blockquote>
+<h3 id="设置all_proxy变量进行加速">设置ALL_PROXY变量进行加速</h3>
+<p>在 <strong>.zshrc</strong> 或者 <strong>.bashrc</strong> 中加入如下两行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">alias</span> <span class="nv">setproxy</span><span class="o">=</span><span class="s2">&#34;export ALL_PROXY=socks5://127.0.0.1:10808&#34;</span> 
+<span class="nb">alias</span> <span class="nv">unsetproxy</span><span class="o">=</span><span class="s2">&#34;unset ALL_PROXY&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后当你要给终端命令科学上网时，只要先运行<strong>setproxy</strong>就行了。但这种方法只对走<strong>http</strong>协议的生效。比如<strong>curl</strong>，<strong>wget</strong>等，而对于走<strong>SSH</strong>协议的 <strong>git clone git@...</strong> 是无效的。</p>
+<h2 id="git-clone下载加速">git clone下载加速</h2>
+<p>git是常用的版本控制的工具，也是从<strong>github</strong>，<strong>gitlab</strong>上下载代码的利器。每天几乎都会<strong>git clone</strong> 和 <strong>git push</strong>。但是由于<strong>github</strong>的服务器不在中国，上传下载十分缓慢，不得不进行科学上网。</p>
+<h3 id="加速ssh协议">加速SSH协议</h3>
+<p><strong>git clone git@xxxxxxxx</strong> 走的其实就是<strong>SSH</strong>协议，所以只要对<strong>SSH</strong>进行配置就可以了。</p>
+<p>编辑 <strong>～/.ssh/config</strong> 文件，如果不存在就新建。</p>
+<p>加入如下代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host github.com
+    HostName github.com
+    User git
+    ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p
+</code></pre></td></tr></table>
+</div>
+</div><p>使用代理进行连接。这里使用到了工具<strong>nc</strong>如果没有安装需要提前安装，不过系统一般都会自带。</p>
+<p>如果你 <strong>git clone</strong> 不是<strong>github</strong>，而是一个你自己搭建在国外服务器上的git服务器，也可以通过配置进行加速。在上面那个文件加入下面的代码，将<strong>Host</strong>改成服务器<strong>ip</strong>，就能起到加速作用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host 104.168.*.*
+    ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="加速http协议">加速HTTP协议</h3>
+<p>在终端中输入下面两行命令就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">git config --global http.proxy &#39;socks5://127.0.0.1:10808&#39; 
+git config --global https.proxy &#39;socks5://127.0.0.1:10808&#39;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="最好的方法">最好的方法</h2>
+<p>最好的最优雅的方法当然是使用<strong>软路由</strong>。只要一个软路由，就可以全家科学上网，无需再各个设备上分别设置。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-11-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/git_speedup/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速" data-hashtags="WSL,Git"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/git_speedup/" data-hashtag="WSL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/git_speedup/" data-title="WSL使用本地代理和git clone加速"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/wsl/">WSL</a>,&nbsp;<a href="/tags/git/">Git</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/shell-3/" class="prev" rel="prev" title="Zsh &amp; Zinit 配置舒服的终端环境"><i class="fas fa-angle-left fa-fw"></i>Zsh &amp; Zinit 配置舒服的终端环境</a>
+            <a href="/vim_python/" class="next" rel="next" title="使用Vim进行Python科学计算编程">使用Vim进行Python科学计算编程<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

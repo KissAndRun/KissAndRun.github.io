@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>每日学习 MySQL 计划 - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="每日学习 MySQL 计划" />
+<meta property="og:description" content="上一个计划“每日学习 vim 计划”在今天晚上（圣诞节）结束了，感觉效果挺好；虽然只存活了 10 天；但是 vim 是曾经接触过，所以计划就提前结束了； 这次开始学" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/sql-begin/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2018-12-25T01:32:06+00:00" />
+<meta property="article:modified_time" content="2018-12-25T01:32:06+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="每日学习 MySQL 计划"/>
+<meta name="twitter:description" content="上一个计划“每日学习 vim 计划”在今天晚上（圣诞节）结束了，感觉效果挺好；虽然只存活了 10 天；但是 vim 是曾经接触过，所以计划就提前结束了； 这次开始学"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/sql-begin/" /><link rel="prev" href="http://example.org/vimrcnote/" /><link rel="next" href="http://example.org/vim-0/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "每日学习 MySQL 计划",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/sql-begin\/"
+        },"genre": "posts","keywords": "MySQL","wordcount":  2155 ,
+        "url": "http:\/\/example.org\/sql-begin\/","datePublished": "2018-12-25T01:32:06+00:00","dateModified": "2018-12-25T01:32:06+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">每日学习 MySQL 计划</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2018-12-25">2018-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2155 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#登录到-mysql">登录到 mysql</a></li>
+    <li><a href="#创建数据库">创建数据库</a></li>
+    <li><a href="#数据类型">数据类型</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#primary-key-主键">Primary Key 主键</a></li>
+    <li><a href="#创建-table">创建 Table</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#导入sql-文件">导入.sql 文件</a></li>
+    <li><a href="#select-查询">SELECT 查询</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#where">WHERE</a></li>
+    <li><a href="#update">UPDATE</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#insert-into">INSERT INTO</a></li>
+    <li><a href="#delete">DELETE</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#order-by">ORDER BY</a></li>
+    <li><a href="#in">IN</a></li>
+    <li><a href="#union">UNION</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>上一个计划“每日学习 vim 计划”在今天晚上（圣诞节）结束了，感觉效果挺好；虽然只存活了 10 天；但是 vim 是曾经接触过，所以计划就提前结束了；</p>
+<p>这次开始学习<code>MySQL</code>; 为下学期数据库选修课做准备</p>
+<h1 id="begin-at-christmas">Begin at Christmas</h1>
+<h2 id="登录到-mysql">登录到 mysql</h2>
+<blockquote>
+<p>mysql -h 主机名 -u 用户名 -p</p>
+</blockquote>
+<p>和 shell 一样，输入 exit 退出登录</p>
+<h2 id="创建数据库">创建数据库</h2>
+<p>对表操作之前需要先选定 database；如果没有 database 可以先新建</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">create database samp_db character set gbk;
+drop database samp_db;   #删除库
+use samp_db          #选择数据库
+show databases[tables]  #显示数据库列表或者表列表
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="数据类型">数据类型</h2>
+<p>在创建 table 前先了解下数据类型</p>
+<p><em>数字类型</em></p>
+<table>
+<thead>
+<tr>
+<th>MySQL 数据类型</th>
+<th>含义（有符号）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tinyint(m)</td>
+<td>1 个字节  范围 (-128~127)</td>
+</tr>
+<tr>
+<td>smallint(m)</td>
+<td>2 个字节  范围 (-32768~32767)</td>
+</tr>
+<tr>
+<td>mediumint(m)</td>
+<td>3 个字节  范围 (-8388608~8388607)</td>
+</tr>
+<tr>
+<td>int(m)</td>
+<td>4 个字节  范围 (-2147483648~2147483647)</td>
+</tr>
+<tr>
+<td>bigint(m)</td>
+<td>8 个字节  范围 (+-9.22*10 的 18 次方）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>存储空间</th>
+<th>精度</th>
+<th>精确性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FLOAT(M, D)</td>
+<td>4 bytes</td>
+<td>单精度</td>
+<td>非精确</td>
+<td>单精度浮点型，m 总个数，d 小数位</td>
+</tr>
+<tr>
+<td>DOUBLE(M, D)</td>
+<td>8 bytes</td>
+<td>双精度</td>
+<td>比 Float 精度高</td>
+<td>双精度浮点型，m 总个数，d 小数位</td>
+</tr>
+</tbody>
+</table>
+<p><em>时间类型</em></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>字节</th>
+<th>例</th>
+<th>精确性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE</td>
+<td>三字节</td>
+<td>2015-05-01</td>
+<td>精确到年月日</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>三字节</td>
+<td>11:12:00</td>
+<td>精确到时分秒</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>八字节</td>
+<td>2015-05-01 11::12:00</td>
+<td>精确到年月日时分秒</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td></td>
+<td>2015-05-01 11::12:00</td>
+<td>精确到年月日时分秒</td>
+</tr>
+<tr>
+<td>TIMESTAMP 类型可动态变化</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>字符串类型</em></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>单位</th>
+<th>最大</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR</td>
+<td>字符</td>
+<td>最大为 255 字符</td>
+<td>存储定长，容易造成空间的浪费</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>字符</td>
+<td>可以超过 255 个字符</td>
+<td>存储变长，节省存储空间</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>字节</td>
+<td>总大小为 65535 字节，约为 64KB</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h1 id="day-two">Day Two</h1>
+<p>今天终于又空闲下来继续学习 MySQL 了；</p>
+<p>不能一口气吃成胖子；</p>
+<p>有一个比较基础的问题就是每次使用 sql 时 都要启动 MariaDB 的系统守护进程<code>systemctl start mariadb.service</code>当然你可以设置成开机自启；如果你不在意那点开机速度的话</p>
+<h2 id="primary-key-主键">Primary Key 主键</h2>
+<p>数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。一个数据表只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）。</p>
+<p>主键是唯一且不重复的；比如在学校里学号是不会重复的，就可以设置为主键。</p>
+<h2 id="创建-table">创建 Table</h2>
+<p>下面这段代码是创建 Table 的常见形式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-- 如果数据库中存在 user_accounts 表，就把它从数据库中 drop 掉
+DROP TABLE IF EXISTS `user_accounts`;
+CREATE TABLE `user_accounts` (
+  `id`             int(100) unsigned NOT NULL AUTO_INCREMENT primary key,
+  `password`       varchar(32)       NOT NULL DEFAULT &#39;&#39; COMMENT &#39;用户密码&#39;,
+  `reset_password` tinyint(32)       NOT NULL DEFAULT 0 COMMENT &#39;用户类型：0－不需要重置密码；1- 需要重置密码&#39;,
+  `mobile`         varchar(20)       NOT NULL DEFAULT &#39;&#39; COMMENT &#39;手机&#39;,
+  `create_at`      timestamp(6)      NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `update_at`      timestamp(6)      NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  -- 创建唯一索引，不允许重复
+  UNIQUE INDEX idx_user_mobile(`mobile`)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8
+COMMENT=&#39;用户表信息&#39;;
+</code></pre></td></tr></table>
+</div>
+</div><p><code>NOT NULL</code>代表数据列不允许包含<code>NULL</code>;<code>NULL</code>代表可以为<code>NULL</code></p>
+<h1 id="元旦特辑">元旦特辑</h1>
+<p>第三篇就到元旦特辑了，嘻嘻嘻，在大家都在写电生理报告的时候，我想到自己已经鸽了很久的 MySQL 篇了</p>
+<p>好了，学习数据库肯定得有数据啊，自己创建一个固然要学，可是自己编一个数据库出来也不现实啊</p>
+<h2 id="导入sql-文件">导入.sql 文件</h2>
+<p>MySQL 数据文件的后缀是.sql 官方有提供几个 example databases; 所以直接用官方给的吧</p>
+<blockquote>
+<p><a href="https://dev.mysql.com/doc/index-other.html" target="_blank" rel="noopener noreffer">MySQL example databases</a></p>
+</blockquote>
+<p>我下载的是<code>sakila</code>，下载下来后<code>unzip</code>后得到三个文件<code>sakila-schema.sql</code>,<code>sakila.mwb</code>,<code>sakila-data.sql</code></p>
+<p>在 mariadb 中 使用 source 命令导入下载的 database,<code>source [path]</code>; 顺序是先导入 sakila-schema.sql, 然后是 sakila-data</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mariadb root@localhost:sakila&gt; show databases
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
++--------------------+
+4 rows in set
+Time: 0.034s
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看到 sakila 已经被导入进来了；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mariadb root@localhost:sakila&gt; use sakila
+You are now connected to database &#34;sakila&#34; as user &#34;root&#34;
+Time: 0.001s
+mariadb root@localhost:sakila&gt; show tables
+10 rows in set
+Time: 0.033s
+
++------------------+
+| Tables_in_sakila |
++------------------+
+| actor            |
+| address          |
+| category         |
+| city             |
+| country          |
+| customer         |
+| film             |
+| film_actor       |
+| film_category    |
+| film_text        |
++------------------+
+
+</code></pre></td></tr></table>
+</div>
+</div><p>XD; 导入成功了；可以开始继续学习操作了</p>
+<h2 id="select-查询">SELECT 查询</h2>
+<p>如果看到 select 后面跟了很长一串；请不要惊慌，select 最核心的语法只是</p>
+<blockquote>
+<p>SELECT 列名称 1, 列名称 2 FROM 表名称</p>
+</blockquote>
+<ul>
+<li>首先要注意两个列名称之间用逗号分隔，不然会被认为是取一个别名（省略 as）</li>
+<li>其次如果要选取所有列 可以使用 SELECT * FROM 表名称</li>
+<li>如果有两张表，有相同的字段名，比如两个表 t1 和 t2，那么查询时需要显式指定查询的字段属于哪张表，select t1.id, t1.name, t2.id, t2.name from t1, t2，以避免冲突</li>
+</ul>
+<p>如果想查询不重复的值只要使用<code>DISTINCT</code>就可以了</p>
+<blockquote>
+<p>SELECT DISTINCT 列名称 FROM 表名称</p>
+</blockquote>
+<h1 id="day-four">Day Four</h1>
+<h2 id="where">WHERE</h2>
+<p><code>where</code> 语句用来设定条件，可以和 SELECT 组合，也可以和<code>DELETE</code>，<code>INSERT</code>等组合</p>
+<p>判断条件的操作符有<code>=</code>、<code>！=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code></p>
+<p>两个或者两个以上条件，可以用<code>OR</code>、<code>AND</code>连接</p>
+<blockquote>
+<p>SELECT * FROM Persons WHERE FirstName=&lsquo;Thomas&rsquo; AND LastName=&lsquo;Carter&rsquo;;</p>
+</blockquote>
+<h2 id="update">UPDATE</h2>
+<p><code>UPDATE</code>用于更新表中的数据</p>
+<blockquote>
+<p>UPDATE 表名称 SET 列名称 = 新值，列名称 = 新值 WHERE 列名称 = 某值</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">update actor set last_name = &#39;Han&#39;, first_name = &#39;Taohai&#39; where actor_id = 1;
++----------+------------+-----------+---------------------+
+| actor_id | first_name | last_name | last_update         |
++----------+------------+-----------+---------------------+
+| 1        | Taohai     | Han       | 2019-01-02 12:09:26 |
++----------+------------+-----------+---------------------+
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="day-five">Day Five</h1>
+<h2 id="insert-into">INSERT INTO</h2>
+<p><code>INSERT INTO</code>用于向表中插入新行</p>
+<blockquote>
+<p>INSERT INTO 表名称 VALUES （值 1, 值 2,&hellip;.)</p>
+</blockquote>
+<p>如果要指定要插入数据的列可以使用</p>
+<blockquote>
+<p>INSERT INTO table_name （列 1, 列 2,&hellip;) VALUES （值 1, 值 2,&hellip;.)</p>
+</blockquote>
+<p>比如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">insert into actor (first_name, last_name) values (&#39;Yi&#39;, &#39;Han&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><p>将插入一新行，actor_id 是<code>ACTO_INCREMENT</code>的，所以不用指定，也会自动生成</p>
+<h2 id="delete">DELETE</h2>
+<p><code>DELETE</code>用于删除表中一行</p>
+<blockquote>
+<p>DELETE FROM 表名称 WHERE 列名称 = 值</p>
+</blockquote>
+<p>在不用<code>WHERE</code>约束的情况下，将删除表中所有行，<code>DELETE FROM table_name</code></p>
+<h1 id="day-six">Day Six</h1>
+<h2 id="order-by">ORDER BY</h2>
+<p>在select语法的最后加上<code>ORDER BY 列名称</code>就可以对所选的数据进行排序，缺省是升序排列
+如果要降序，可以在最后加上<code>DESC</code>的描述</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="in">IN</h2>
+<p>在<code>WHERE</code>语法中可以使用<code>IN</code>来规定多个值
+语法为</p>
+<blockquote>
+<p>SELECT 列名称 FROM Table 名称 WHERE 列名称 IN (<code>值1</code>， <code>值2</code>，&hellip;)</p>
+</blockquote>
+<p>使用<code>NOT</code>可以排除某些值，语法为在<code>IN</code>之前加<code>NOT</code>，</p>
+<blockquote>
+<p>SELECT 列名称 FROM Table 名称 WHERE 列名称 NOT IN (<code>值1</code>， <code>值2</code>，&hellip;)</p>
+</blockquote>
+<h2 id="union">UNION</h2>
+<p><code>UNION</code>用于 合并两个<code>SELECT</code>里，合并是指 第二个查询直接接在第一个查询后面</p>
+<p>考试周到了，这大概是本学期最后一更了，鸽了鸽了</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2018-12-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/sql-begin/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划" data-hashtags="MySQL"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/sql-begin/" data-hashtag="MySQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/sql-begin/" data-title="每日学习 MySQL 计划"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">MySQL</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/vimrcnote/" class="prev" rel="prev" title="我的 Vimrc 快捷键备忘"><i class="fas fa-angle-left fa-fw"></i>我的 Vimrc 快捷键备忘</a>
+            <a href="/vim-0/" class="next" rel="next" title="🔧第 N 次的 Vim 入门记录">🔧第 N 次的 Vim 入门记录<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

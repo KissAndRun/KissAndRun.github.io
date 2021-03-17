@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>🔧第 N 次的 Vim 入门记录 - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="🔧第 N 次的 Vim 入门记录" />
+<meta property="og:description" content="不学个一个月就什么都学不会 本着这样的理念，决定推出每日学习计划每项学习任务的周期为一个月，坚持每日学习，每日码字。实验小白鼠为早就想学的 vi" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/vim-0/" />
+<meta property="og:image" content="http://example.org/logo.jpg"/>
+<meta property="article:published_time" content="2020-06-05T00:26:40+08:00" />
+<meta property="article:modified_time" content="2020-06-05T00:26:40+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="🔧第 N 次的 Vim 入门记录"/>
+<meta name="twitter:description" content="不学个一个月就什么都学不会 本着这样的理念，决定推出每日学习计划每项学习任务的周期为一个月，坚持每日学习，每日码字。实验小白鼠为早就想学的 vi"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/vim-0/" /><link rel="prev" href="http://example.org/sql-begin/" /><link rel="next" href="http://example.org/wsl-0/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "🔧第 N 次的 Vim 入门记录",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/vim-0\/"
+        },"genre": "posts","keywords": "Vim","wordcount":  3245 ,
+        "url": "http:\/\/example.org\/vim-0\/","datePublished": "2020-06-05T00:26:40+08:00","dateModified": "2020-06-05T00:26:40+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://www.notion.so/kissandrun/Web-Collection-e91170e0b18947f0835ee5215017ff49" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">🔧第 N 次的 Vim 入门记录</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-05">2020-06-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3245 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#day-one">Day One</a>
+      <ul>
+        <li><a href="#在-vim-中打开文件">在 vim 中打开文件</a></li>
+        <li><a href="#查找">查找</a></li>
+        <li><a href="#移动光标">移动光标</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-two">Day Two</a>
+      <ul>
+        <li><a href="#替换">替换</a></li>
+        <li><a href="#批量编辑文件">批量编辑文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-three">Day Three</a>
+      <ul>
+        <li><a href="#自动补全">自动补全</a></li>
+        <li><a href="#自动匹配括号">自动匹配括号</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-four">Day Four</a>
+      <ul>
+        <li><a href="#多文件编辑">多文件编辑</a></li>
+        <li><a href="#buffer-运用">Buffer 运用</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-five">Day Five</a>
+      <ul>
+        <li><a href="#快速移动">快速移动</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-six">Day Six</a>
+      <ul>
+        <li><a href="#可视模式">可视模式</a></li>
+        <li><a href="#text-object">Text-object</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-seven">Day Seven</a>
+      <ul>
+        <li><a href="#ex-模式中的-">Ex 模式中的 <code>%</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#day-eight">Day Eight</a>
+      <ul>
+        <li><a href="#寄存器">寄存器</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-nine">Day Nine</a>
+      <ul>
+        <li><a href="#marks">Marks</a></li>
+      </ul>
+    </li>
+    <li><a href="#圣诞特辑">圣诞特辑</a>
+      <ul>
+        <li><a href="#宏">宏</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong>不学个一个月就什么都学不会</strong></p>
+<p>本着这样的理念，决定推出<code>每日学习计划</code>每项学习任务的周期为一个月，坚持每日学习，每日码字。实验小白鼠为早就想学的 vim。</p>
+<p><strong>不积跬步无以至千里</strong></p>
+<p>本次计划遵循到红哥那偷零食吃的原则：少量多次</p>
+<h2 id="day-one">Day One</h2>
+<h3 id="在-vim-中打开文件">在 vim 中打开文件</h3>
+<ul>
+<li><code>:e &lt;filename&gt;</code>打开名为 filename 的文件，若不存在则创建</li>
+<li><code>:Ex</code> 在 vim 中打开目录树，光标选中后回车打开对应文件，<code>-</code>进入上级目录</li>
+</ul>
+<p>记忆：大概是 explorer 的意思</p>
+<h3 id="查找">查找</h3>
+<ul>
+<li><code>/&lt;search&gt;</code> 向后查找指定的字符串</li>
+<li><code>?&lt;search&gt;</code> 向前查找指定的字符串</li>
+<li><code>n</code> 继续查找下一个</li>
+<li><code>N</code> 继续查找上一个</li>
+</ul>
+<blockquote>
+<p>匹配查找： 可以用<code>%</code>对 (),[],{}进行匹配查找</p>
+</blockquote>
+<h3 id="移动光标">移动光标</h3>
+<ul>
+<li><code>e</code> 向右移动到单词结尾 记忆：end</li>
+<li><code>b</code> 向左移动到单词开头 记忆：back</li>
+<li><code>0</code> 行首</li>
+<li><code>$</code> 行尾</li>
+<li><code>&lt;N&gt;gg</code> 跳转到第 N 行，gg 为到第一行</li>
+<li><code>Ctrl-d</code> 向下移动半页</li>
+<li><code>Ctrl-u</code> 向上移动半页 记忆：down and up</li>
+</ul>
+<h2 id="day-two">Day Two</h2>
+<h3 id="替换">替换</h3>
+<p><strong>:[addr]s/ 源字符串 / 目的字符串 /[option]</strong> , 其中 [addr][option] 是可以缺省不填的</p>
+<ul>
+<li><code>[addr]</code> 代表检索范围，常用的有<code>%</code>代表整个文件，<code>1,10</code>代表从 1 到 10 行，缺省为当前行</li>
+<li><code>[option]</code> 代表操作类型，缺省只对第一个匹配的字符替换，<code>g</code> 代表全局替换，<code>c</code> 代表替换时确认</li>
+</ul>
+<p>几个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">:s/aa/bb/g       将所在行出现的所有 aa 替换为 bb
+:%s/aa/bb/g      将文档中所有的包含 aa 的字符串替换为 bb
+:12,25s/aa/bb/g  将 <span class="m">12</span> 行到 <span class="m">25</span> 行中所有包含 aa 的字符替换为 bb
+:%s/^/#/         全文的行首添加#字符
+:%s<span class="o">=</span> *$<span class="o">==</span>        所有行尾多余的空格去除
+:g/^$/d          删除所有空行 markdown 慎用
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>中间穿插点东西，作为一个 copy 党不和系统复制粘贴使用 vim 实在是太困难了，所以 google 了解决方法</p>
+</blockquote>
+<ul>
+<li>复制到系统剪贴板   <strong>&quot;+y</strong></li>
+<li>系统剪贴板中复制   <strong>&quot;+p</strong></li>
+</ul>
+<h3 id="批量编辑文件">批量编辑文件</h3>
+<pre><code>:argdo 『加命令』
+</code></pre>
+<p>例如：<code>:argdo %s/xxx/yyy/g</code> 对所有打开的文件进行查找替换</p>
+<p>最后编辑完之后保存和关闭所有打开的文件</p>
+<pre><code>:wa
+:qa
+</code></pre>
+<h2 id="day-three">Day Three</h2>
+<h3 id="自动补全">自动补全</h3>
+<p>vim 自带的自动补全功能并不好用所以使用第三方的 YouCompleteMe 来完成自动补全的工作。YouCompleteMe 并不好装，折腾了一上午终于装完了</p>
+<p>YouCompleteMe 默认只能自动你安装时候用的 Python Interpret, 如果要添加 Conda 或者 Virtualenv 中的 Python 环境，解决方法是在<code>.ycm_extra_conf.py</code>文件的最后写入以下内容</p>
+<pre><code>def Settings( **kwargs ):
+    return {
+        'interpreter_path': '/path/to/virtual/environment/python'
+    }
+</code></pre>
+<p>YouCompleteMe 采用 Tab 键接受补全，一直按 Tab 键则会循环所有的匹配补全项，操作逻辑和 zsh 相似</p>
+<p>参考：<a href="http://howiefh.github.io/2015/05/22/vim-install-youcompleteme-plugin/" target="_blank" rel="noopener noreffer">Vim 自动补全插件 YouCompleteMe 安装与配置</a></p>
+<h3 id="自动匹配括号">自动匹配括号</h3>
+<p>自动匹配括号采用第三方插件&rsquo;Raimondi/delimitMate&rsquo;完成</p>
+<h2 id="day-four">Day Four</h2>
+<h3 id="多文件编辑">多文件编辑</h3>
+<p>使用<code>NERDTree</code>插件结合 vim 的多文件编辑功能真的舒服的飞起</p>
+<blockquote>
+<p>安装方法比较常规 在<code>.vimrc</code>文件中添加<code>scrooloose/nerdtree</code></p>
+</blockquote>
+<p>并且在<code>.vimrc</code>中添加如下的配置</p>
+<pre><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;NerdTree setting&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 &amp;&amp; !exists(&quot;s:std_in&quot;) | NERDTree | endif
+autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif
+</code></pre>
+<p>就能够更加舒服的使用，Ctrl-n 开关 Tree，当 Tree 是最后一个窗口的时候自动关闭 vim</p>
+<p>其他快捷键有以下</p>
+<ul>
+<li>选中目录 <code>o</code>打开目录</li>
+<li>选中文件 <code>o</code>在当前窗口中直接打开文件</li>
+<li>选中文件 <code>s</code>竖直分割窗口打开文件 <code>i</code>水平分割打开文件 <code>t</code>在新 tab 打开文件</li>
+<li><code>C</code>&ndash; Change the tree root to the selected dir</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/scrooloose/nerdtree/blob/master/doc/NERDTree.txt" target="_blank" rel="noopener noreffer">NERDTREE 官方文档</a></p>
+</blockquote>
+<p>在<code>.vimrc</code>中添加以下配置，切换 windows 更加快捷</p>
+<pre><code>&quot; Smart way to move between windows
+map &lt;C-j&gt; &lt;C-W&gt;j
+map &lt;C-k&gt; &lt;C-W&gt;k
+map &lt;C-h&gt; &lt;C-W&gt;h
+map &lt;C-l&gt; &lt;C-W&gt;l
+</code></pre>
+<h3 id="buffer-运用">Buffer 运用</h3>
+<p>运用 Buffer 进行多文件管理能够更加高效（相比于 tab）；这好像是国外一群 vimer 交流讨论出来的结果</p>
+<p>Buffer 缓冲区就是你用 vim 打开文件都会被写入缓冲区中，比如用<code>NerdTree</code>打开文件，不会加入 args 中，却会加入缓冲区；</p>
+<p>重新 mapping 快捷键如下</p>
+<pre><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;buffer setting&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+set hidden &quot; 避免必须保存修改才可以跳转 buffer
+
+&quot; buffer 快速导航
+nnoremap &lt;Leader&gt;b :bp&lt;CR&gt;
+nnoremap &lt;Leader&gt;f :bn&lt;CR&gt;
+
+&quot; 通过索引快速跳转
+nnoremap &lt;Leader&gt;1 :1b&lt;CR&gt;
+nnoremap &lt;Leader&gt;2 :2b&lt;CR&gt;
+nnoremap &lt;Leader&gt;3 :3b&lt;CR&gt;
+nnoremap &lt;Leader&gt;4 :4b&lt;CR&gt;
+nnoremap &lt;Leader&gt;5 :5b&lt;CR&gt;
+nnoremap &lt;Leader&gt;6 :6b&lt;CR&gt;
+nnoremap &lt;Leader&gt;7 :7b&lt;CR&gt;
+nnoremap &lt;Leader&gt;8 :8b&lt;CR&gt;
+nnoremap &lt;Leader&gt;9 :9b&lt;CR&gt;
+nnoremap &lt;Leader&gt;0 :10b&lt;CR&gt;
+</code></pre>
+<p>当然 switch buffer 时还可以直接<code>:b [pattern]</code>直接切换，还可以用<code>Tab</code>补全</p>
+<h2 id="day-five">Day Five</h2>
+<h3 id="快速移动">快速移动</h3>
+<p>个人比较倾向于多 windows 多 buffer 的操作，比如屏幕包含三列 windows（nerdtree 加两个打开 buffer 的 windows）</p>
+<p>所以最后的结果是多个 windows 共用一个 buffer 列表；</p>
+<p>在单个 windows 中快速跳转除了基本的移动光标（如<code>f</code> <code>t</code> 以及<code>hjkl</code>等等）的方法之外还有以下方法</p>
+<ol>
+<li><strong>CTRL-O</strong> 和 <strong>CTRL-I</strong> 追踪光标的移动，可以回到光标以前的位置，甚至可以不是这个 buffer</li>
+<li>搜索跳转</li>
+<li>设置标志跳转（待学习</li>
+</ol>
+<p>第一种使用** CTRL-O** 和 **CTRL-I **的方法其实是利用跳转表，<code>:jumps</code>可以查看。但是如果多 windows，因为各个 windows 跳转表不同，所以不能用这种方法在 window 之间切换；</p>
+<blockquote>
+<p>一般，每次你执行一个会将光标移动到本行之外的命令，该移动即被称为一个 &ldquo;跳转&rdquo; 。这包括查找命令 &ldquo;/&rdquo; 和 &ldquo;n&rdquo; （无论跳转到多远的地方）。但不包括 &ldquo;fx&rdquo; 和 &ldquo;tx&rdquo; 这些行 内查找命令或者 &ldquo;w&rdquo; 和 &ldquo;e&rdquo; 等词移动命令。 &mdash;-vimdoc</p>
+</blockquote>
+<p>同样也不包括&quot;j&quot; &ldquo;k&rdquo;;</p>
+<p>切换 window 参考上文；其中添加一个命令到<code>.vimrc</code></p>
+<pre><code>map &lt;C-f&gt; &lt;C-W&gt;&lt;C-P&gt;
+</code></pre>
+<p>绑定快捷键 CTRL-F 用于切换到刚刚的那个 windows;</p>
+<p>同一个 windows 中切换不同的 buffer 可以参考上面的内容；</p>
+<h2 id="day-six">Day Six</h2>
+<h3 id="可视模式">可视模式</h3>
+<p>激活可视模式的方法有以下几种</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">v</td>
+<td style="text-align:left">激活面向字符的可视模式</td>
+</tr>
+<tr>
+<td style="text-align:left">V</td>
+<td style="text-align:left">激活面向行的可视模式</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;C-V&gt;</td>
+<td style="text-align:left">激活面向列的可视模式</td>
+</tr>
+<tr>
+<td style="text-align:left">gv</td>
+<td style="text-align:left">激活上次的高亮区块</td>
+</tr>
+</tbody>
+</table>
+<p>进入可视模式后，可以用普通模式下移动光标的方法选定区域；可以使用<code>A</code>或者<code>I</code>在区域前或者后面添加内容；</p>
+<p><code>viw</code> 可以快速选定一个 word; 之后可以对其进行<code>y</code> <code>x</code> <code>c</code>等操作</p>
+<p>如果你在可视模式下选中了一些文字，然后你又发现你需要改变被选择的文字的另一端， 用 &ldquo;o&rdquo; 命令即可 （提示：&ldquo;o&rdquo; 表示 other end)，光标会移动到被选中文字的另一端，现 在你可以移动光标去改变选中文字的开始点了。再按 &ldquo;o&rdquo; 光标还会回到另一端。</p>
+<h3 id="text-object">Text-object</h3>
+<p>经常使用<code>ci(</code> <code>ci&quot;</code>之类的命令，还有上面提到的<code>viw</code>命令；让我好奇 i 的含义</p>
+<p>在 vim 中，指令的基本结构是 <code>&lt;number&gt;&lt;command&gt;&lt;text-object or motion&gt;</code></p>
+<p>文本对象操作涉及到范围和操作，范围主要是主要是 i(inner ) 和 a(around)，文本对象有 w (word), s (sentence), p (paragraph), 和各种 引号和括号。</p>
+<p>如果是 word 的话，i 只作用于字母，而 a 作用于 word 及其后面的空格；</p>
+<p>如果是各种引号或者括号，i 只作用于括号内的内容，而 a 包括括号本身；</p>
+<blockquote>
+<p><a href="https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/" target="_blank" rel="noopener noreffer">一篇很棒的文章</a></p>
+</blockquote>
+<pre><code>    @todo args
+</code></pre>
+<h2 id="day-seven">Day Seven</h2>
+<h3 id="ex-模式中的-">Ex 模式中的 <code>%</code></h3>
+<p>normal 模式中<code>%</code>用于匹配括号等；在 Ex 模式中 <code>%</code>代表活动缓冲区的完整路径</p>
+<p><code>:edit %&lt;TAB\&gt;</code>; 按 TAB 键可以将路径完整显示；而<code>:edit %:h&lt;TAB\&gt;</code> :h 修饰符会去除文件名</p>
+<p><code>:!mkdir -p %:h</code> 就能够创造一个不存在的目录</p>
+<h2 id="day-eight">Day Eight</h2>
+<h3 id="寄存器">寄存器</h3>
+<p>Vim 提供了 10 类共 48 个寄存器</p>
+<p>一般来讲，可以用<code>&quot;{register}y</code>来拷贝到<code>{register}</code>中， 用<code>&quot;{register}p</code>来粘贴<code>{register}</code>中的内容。例如： <code>&quot;ayy</code>可以拷贝当前行到寄存器 a 中，而<code>&quot;ap</code>则可以粘贴寄存器 a 中的内容。</p>
+<p>共有十种类型的寄存器：</p>
+<ol>
+<li>无名寄存器 &quot;&quot;</li>
+<li>10 个编号寄存器 &ldquo;0 到 &ldquo;9</li>
+<li>行内删除寄存器 &ldquo;-</li>
+<li>26 个命名的寄存器 &ldquo;a 到 &ldquo;z 或者 &ldquo;A 到 &ldquo;Z</li>
+<li>三个只读寄存器 &ldquo;:、&rdquo;. 和 &ldquo;%</li>
+<li>轮换缓冲区寄存器 &ldquo;#</li>
+<li>表达式寄存器 &ldquo;=</li>
+<li>选择和拖放寄存器 &ldquo;*、&quot;+ 和 &ldquo;~</li>
+<li>黑洞寄存器寄存器 &ldquo;_</li>
+<li>最近搜索模式寄存器 &ldquo;/</li>
+</ol>
+<p>其中 无名寄存器<code>“”</code>是缺省寄存器，编号寄存器<code>&quot;0</code>是拷贝寄存器，其他数字寄存器是大于一行的删除寄存器；</p>
+<h2 id="day-nine">Day Nine</h2>
+<h3 id="marks">Marks</h3>
+<p>设定一个标记，使用命令<code>m{a-zA-Z}</code>; 例如，命令<code>mt</code>在把当前光标位置设定为标记 t；命令<code>mT</code>把当前光标位置设定为标记 T。(:help m)</p>
+<p>要跳转到指定的标记，使用命令<code>'{a-zA-Z}</code>或<code>'{a-zA-Z}</code>。例如，命令<code>'t</code>会跳转到标记 t；命令<code>'T</code>会跳转到标记 T。</p>
+<p>大写的标记可以在不同 buffer 之前跳转</p>
+<p>使用<code>:marks</code>命令可以查看现有的 marks; 使用命令<code>:delmarks</code>可以删除指定标记</p>
+<p>同样内置了几个 marks</p>
+<pre><code>.   	最近编辑的位置
+0-9  	最近使用的文件
+∧   	最近插入的位置
+'   	上一次跳转前的位置
+&quot;   	上一次退出文件时的位置
+[   	上一次修改的开始处
+]   	上一次修改的结尾处
+</code></pre>
+<h2 id="圣诞特辑">圣诞特辑</h2>
+<h3 id="宏">宏</h3>
+<p>很多时候使用 vim 重复一个命令，我们最先想到<code>.</code>命令，但点命令只能重复上一个命令如果要重复很多个命令就要使用宏录制 (macro)</p>
+<p>录制宏，可以使用 q+[a-z] 26 个字母中的一个</p>
+<blockquote>
+<p>q[a-z]</p>
+</blockquote>
+<p>开始录制宏，结束时再摁一下<code>q</code>。</p>
+<p>对的没错他用的就是前文所讲的字母寄存器。所以可以用查看 reg 的方法查看录制的宏<code>:reg a</code>;</p>
+<p>录制完宏后，再寄存器名前加<code>@</code>，可以执行宏。</p>
+<p>怎么编辑宏呢？</p>
+<ul>
+<li>:let @a=’</li>
+<li>输入 Ctrl + r + a 来插入 a 中内容；</li>
+<li>编辑内容然后以 ' 结束 Enter 退出</li>
+</ul>
+<p>至此，基础的 vim 已经学的差不多了，或者说已经可以满足日常的使用了。所要做的就是实践和总结。</p>
+<p>所以，本文就结束了，今后实践和总结所得将会写在新的文章中。祝自己圣诞快乐</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-06-05</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/vim-0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录" data-hashtags="Vim"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/vim-0/" data-hashtag="Vim"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/vim-0/" data-title="🔧第 N 次的 Vim 入门记录"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">Vim</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/sql-begin/" class="prev" rel="prev" title="每日学习 MySQL 计划"><i class="fas fa-angle-left fa-fw"></i>每日学习 MySQL 计划</a>
+            <a href="/wsl-0/" class="next" rel="next" title="✔️WSL2 折腾日记和使用体验报告">✔️WSL2 折腾日记和使用体验报告<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>

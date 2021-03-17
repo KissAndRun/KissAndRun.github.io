@@ -1,0 +1,49 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>学习笔记 - 分类 - No Visitor Website</title>
+        <link>http://example.org/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <description>学习笔记 - 分类 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Dec 2017 15:36:17 &#43;0000</lastBuildDate><atom:link href="http://example.org/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>🐍Numpy 中神奇的切片</title>
+    <link>http://example.org/learning-python-6/</link>
+    <pubDate>Mon, 25 Dec 2017 15:36:17 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-6/</guid>
+    <description><![CDATA[为什么要写切片呢，因为当时看书学切片的时候，感觉这东西和 MATLAB 和 numpy 里面很像，就粗略的看了一下但没有仔细的深究，但每次用的时候都觉得需要查一下怎么]]></description>
+</item><item>
+    <title>🐍python 的动态语言特性</title>
+    <link>http://example.org/learning-python-5/</link>
+    <pubDate>Sat, 16 Dec 2017 15:36:58 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-5/</guid>
+    <description><![CDATA[动态编程语言是高级程序设计语言的一个类别，在计算机科学领域已被广泛应用。它是一类在运行时可以改变其结构的语言：例如新的函数、对象、甚至代码可]]></description>
+</item><item>
+    <title>🐍python 中的装饰器</title>
+    <link>http://example.org/learning-python-4/</link>
+    <pubDate>Mon, 11 Dec 2017 13:36:08 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-4/</guid>
+    <description><![CDATA[装饰器 (Decorator) 就是为了增强某个函数的功能，但又不想改变这个函数本来的定义而引进的。 &lsquo;@&rsquo; 用做函数的修饰符，可以在模块或者类的定义层内对函数进行修饰，出]]></description>
+</item><item>
+    <title>🐍&#39;*arg 和** kwarg&#39;</title>
+    <link>http://example.org/learning-python-3/</link>
+    <pubDate>Thu, 07 Dec 2017 13:36:08 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-3/</guid>
+    <description><![CDATA[当你不确定你的函数里将要传递多少参数时你可以用*args, 它可以传递任意数量的参数。 **kwargs允许你使用没有事先定义的参数名。 *arg 会把多]]></description>
+</item><item>
+    <title>🐍一些 python 的内置函数</title>
+    <link>http://example.org/learning-python-2/</link>
+    <pubDate>Mon, 04 Dec 2017 13:36:08 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-2/</guid>
+    <description><![CDATA[map() map(func,Iterable) map() 函数接收两个参数，一个是函数，一个是 Iterable. map 将传入的函数依次作用到序列的每个元素，并把结果作为新的 Iterator 返回。 1 2 3 4 5 6 &gt;&gt;&gt; def f(x): ... return x * x ... &gt;&gt;&gt;]]></description>
+</item><item>
+    <title>🐍一些 python 的基础知识</title>
+    <link>http://example.org/learning-python-1/</link>
+    <pubDate>Sat, 02 Dec 2017 13:36:08 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/learning-python-1/</guid>
+    <description><![CDATA[参数的传递 对象有两种，“可更改”（mutable）与“不可更改”（immutable）对象。 在 python 中，strings, tuples, 和 numbers 是不可更改的对象，]]></description>
+</item></channel>
+</rss>

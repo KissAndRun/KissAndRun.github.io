@@ -1,0 +1,35 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Vim - 标签 - No Visitor Website</title>
+        <link>http://example.org/tags/vim/</link>
+        <description>Vim - 标签 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 26 Nov 2020 16:02:29 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/vim/" rel="self" type="application/rss+xml" /><item>
+    <title>使用Vim进行Python科学计算编程</title>
+    <link>http://example.org/vim_python/</link>
+    <pubDate>Thu, 26 Nov 2020 16:02:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vim_python/</guid>
+    <description><![CDATA[Python 作为一种脚本代码，不需要配置复杂的编译环境，而 Vim 具有优秀的英文编辑能力，使用Vim编辑Python是非常不错的选择。科学计算使用 Anaconda 构建虚拟]]></description>
+</item><item>
+    <title>SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流</title>
+    <link>http://example.org/myworkflow/</link>
+    <pubDate>Sun, 22 Nov 2020 20:01:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/myworkflow/</guid>
+    <description><![CDATA[作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无]]></description>
+</item><item>
+    <title>🔧第 N 次的 Vim 入门记录</title>
+    <link>http://example.org/vim-0/</link>
+    <pubDate>Fri, 05 Jun 2020 00:26:40 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vim-0/</guid>
+    <description><![CDATA[不学个一个月就什么都学不会 本着这样的理念，决定推出每日学习计划每项学习任务的周期为一个月，坚持每日学习，每日码字。实验小白鼠为早就想学的 vi]]></description>
+</item><item>
+    <title>我的 Vimrc 快捷键备忘</title>
+    <link>http://example.org/vimrcnote/</link>
+    <pubDate>Mon, 17 Dec 2018 11:16:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vimrcnote/</guid>
+    <description><![CDATA[我的 Vim 配置文件放置在我的 Github 上，如有兴趣可以查阅 在尝试了很多集成性很高的 Vim 配置（比如 SpaceVim 和 rafi 大神的配置）之后，我决定重新使用和打磨自己的配置。原]]></description>
+</item></channel>
+</rss>

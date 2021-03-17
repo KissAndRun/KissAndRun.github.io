@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Git - 标签 - No Visitor Website</title>
+        <link>http://example.org/tags/git/</link>
+        <description>Git - 标签 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 25 Nov 2020 11:52:27 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>WSL使用本地代理和git clone加速</title>
+    <link>http://example.org/git_speedup/</link>
+    <pubDate>Wed, 25 Nov 2020 11:52:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/git_speedup/</guid>
+    <description><![CDATA[平时科学上网时，一般的流程都是这样的，在一个客户端中配置你的V2ray，Trojan信息，然后客户端会设置一个本地的监听端口，常用的比如10]]></description>
+</item><item>
+    <title>Git 配置和常用命令</title>
+    <link>http://example.org/git-0/</link>
+    <pubDate>Sat, 28 Oct 2017 15:59:13 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/git-0/</guid>
+    <description><![CDATA[在 Ubuntu 上安装 git 打开命令行界面，输入： sudo apt-get install git 没有提示错误则安装成功。 配置 git 信息 还是在命令行界面，输入 1 2 3 git config --global user.name &#34;Your Name&#34; git config --global user.email &#34;email@example.com&#34; 能和 github 账号一样]]></description>
+</item></channel>
+</rss>

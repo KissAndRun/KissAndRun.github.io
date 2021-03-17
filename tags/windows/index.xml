@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Windows - 标签 - No Visitor Website</title>
+        <link>http://example.org/tags/windows/</link>
+        <description>Windows - 标签 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 24 Jun 2020 15:11:25 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/windows/" rel="self" type="application/rss+xml" /><item>
+    <title>👨‍💻Windows 下优秀软件推荐</title>
+    <link>http://example.org/app-0/</link>
+    <pubDate>Wed, 24 Jun 2020 15:11:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/app-0/</guid>
+    <description><![CDATA[macOS下有很多优秀的软件，极大的提升了生产力。人们提到Windows系统下的软件，第一感觉可能是：多而乱，良莠不齐。而且由于不少国产软件]]></description>
+</item><item>
+    <title>✔️WSL2 折腾日记和使用体验报告</title>
+    <link>http://example.org/wsl-0/</link>
+    <pubDate>Tue, 23 Jun 2020 13:36:53 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/wsl-0/</guid>
+    <description><![CDATA[疫情期间，迫于撰写毕业论文和大量的网络会议需求，我将自己的主力系统换到了 Windows 10，前几天又加入了预览者计划，更新到了最新的20H2 版本，该版本]]></description>
+</item></channel>
+</rss>
